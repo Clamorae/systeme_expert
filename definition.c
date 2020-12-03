@@ -12,3 +12,13 @@ void addProp(Regle rule, Proposition str){
   }
   rulePremisse->next = newElem
 }
+
+Bool testProp(Premisse rulePrem, Proposition prop){
+  if(rulePrem = NULL){
+    return 0
+  }else if (!strcmp(rulePrem->proposition, prop)){
+    return 1
+  }else{
+    return testProp(rulePrem->next, prop)
+  }
+}
