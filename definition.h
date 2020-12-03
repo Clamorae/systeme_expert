@@ -1,6 +1,13 @@
-typedef char* Proposition;
+typedef char* Proposition
+
+typedef struct elP{
+  Proposition proposition;
+  struct elP* next;
+}ElemPremisse;
+
+typedef ElemPremisse* Premisse;
 
 typedef struct rl{
-  Proposition proposition;
-  struct rl* next;
-}rule;
+  Premisse premisse;
+  Proposition conclusion;
+}Regle
