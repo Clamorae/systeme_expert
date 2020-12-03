@@ -1,3 +1,5 @@
+#include <string.h>
+
 typedef char* Proposition;
 
 typedef struct elP{
