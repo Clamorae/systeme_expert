@@ -18,7 +18,7 @@ Regle* createRule(){
     return new;
 }
 
-void createConclusion(Regle rule,Proposition str){
+void createConclusion(Regle rule){
     Proposition* newConc = (Proposition*) malloc(sizeof(Proposition));
-    Regle Conclusion=
+    rule.conclusion=newConc;
 }
