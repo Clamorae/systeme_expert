@@ -1,4 +1,4 @@
-typedef char* Proposition
+typedef char* Proposition;
 
 typedef struct elP{
   Proposition proposition;
