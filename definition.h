@@ -10,4 +10,4 @@ typedef ElemPremisse* Premisse;
 typedef struct rl{
   Premisse premisse;
   Proposition conclusion;
-}Regle
+}Regle;
