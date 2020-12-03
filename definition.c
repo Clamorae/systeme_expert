@@ -51,7 +51,7 @@ Bool deleteProp(Premisse head, Proposition prop){
     else if(!strcmp(head->next->proposition,prop)){
         head->next=head->next->next;
         free(head->next);
-        return head;
+        return NULL;
     }
     else{
         return deleteProp( head->next, prop);
