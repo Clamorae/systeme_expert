@@ -25,10 +25,24 @@ void createConclusion(Regle rule){
 
 Bool testProp(Premisse rulePrem, Proposition prop){
   if(rulePrem = NULL){
-    return 0
+    return 0;
   }else if (!strcmp(rulePrem->proposition, prop)){
-    return 1
+    return 1;
   }else{
-    return testProp(rulePrem->next, prop)
+    return testProp(rulePrem->next, prop);
   }
+}
+
+Bool deleteProp(Premisse head, Proposition prop){
+    if (head->next!=NULL){
+        return NULL;
+    }
+    else if(!strcmp(head->next->proposition,prop)){
+        head->next=head->next->next;
+        free(head->next);
+        return head;
+    }
+    else{
+        return deleteProp( head->next, prop);
+    }
 }
