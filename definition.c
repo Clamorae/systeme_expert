@@ -10,7 +10,17 @@ void addProp(Regle rule, Proposition str){
   while(rulePremisse->next != NULL){
     rulePremisse = rulePremisse->next;
   }
-  rulePremisse->next = newElem
+  rulePremisse->next = newElem;
+}
+
+Regle* createRule(){
+    Regle* new = (Regle*) malloc(sizeof(Regle));
+    return new;
+}
+
+void createConclusion(Regle rule){
+    Proposition* newConc = (Proposition*) malloc(sizeof(Proposition));
+    rule.conclusion=newConc;
 }
 
 Bool testProp(Premisse rulePrem, Proposition prop){
