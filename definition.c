@@ -27,7 +27,7 @@ void createConclusion(Regle rule){
 }
 
 Bool testProp(Premisse rulePrem, Proposition prop){
-  if(rulePrem = NULL){
+  if(rulePrem == NULL){
     return false;
   }else if (!strcmp(rulePrem->proposition, prop)){
     return true;

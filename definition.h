@@ -18,3 +18,12 @@ typedef struct rl{
   Premisse premisse;
   Proposition conclusion;
 }Regle;
+
+
+/* part2*/
+typedef struct bc{
+  Regle head;
+  struct bc* next;
+}ElemBC;
+
+typedef ElemBC* BC;
