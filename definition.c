@@ -57,3 +57,20 @@ Bool deleteProp(Premisse head, Proposition prop){
         return deleteProp( head->next, prop);
     }
 }
+///////////////////////////////////
+Bool isNULL(Premisse head){
+  if (head==NULL){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+Premisse PremisseHead(Regle rule){
+  return rule.premisse;
+}/* vriament pas sur de celle la*/
+
+Proposition RuleConclusion(Regle rule){
+  return rule.conclusion;
+}
