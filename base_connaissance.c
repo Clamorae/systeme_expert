@@ -1,5 +1,10 @@
 #include "definition.h"
 
+KB createbasis(){
+    KB newel=(KB)malloc(sizeof(ElemBC));
+    return newel;
+}
+
 void addRule(Regle rule,KB base){
    if (base==NULL){
        base->head=rule;
