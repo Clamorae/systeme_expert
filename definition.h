@@ -19,8 +19,6 @@ typedef struct rl{
   Proposition conclusion;
 }Regle;
 
-
-/* part2*/
 typedef struct bc{
   Regle head;
   struct bc* next;
