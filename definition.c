@@ -45,13 +45,15 @@ Bool isPremisseEmpty(Regle rule){
 }
 
 Bool deleteProp(Premisse head, Proposition prop){
+    int* p;
     if (head->next!=NULL){
         return NULL;
     }
     else if(!strcmp(head->next->proposition,prop)){
-        head->next=head->next->next;
-        free(head->next);
-        return NULL;
+      p=head->next;
+      head->next=head->next->next;
+      free(head->next);
+      return NULL;
     }
     else{
         return deleteProp( head->next, prop);

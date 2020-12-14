@@ -1,6 +1,6 @@
 #include "definition.h"
 
-void addRule(Regle rule,BC base){
+void addRule(Regle rule,KB base){
    if (base==NULL){
        base->head=rule;
        base->next=NULL;
@@ -15,6 +15,6 @@ void addRule(Regle rule,BC base){
    }   
 }
 
-Regle firstRule(BC base){
+Regle firstRule(KB base){
     return base->head;
 }

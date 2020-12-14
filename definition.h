@@ -26,4 +26,4 @@ typedef struct bc{
   struct bc* next;
 }ElemBC;
 
-typedef ElemBC* BC;
+typedef ElemBC* KB;
