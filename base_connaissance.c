@@ -1,4 +1,4 @@
-#include "definition.h"
+#include "base_connaissance.h"
 
 KB createbasis(){
     KB newel=(KB)malloc(sizeof(ElemBC));
@@ -17,7 +17,7 @@ void addRule(Regle rule,KB base){
        ElemBC *newel= malloc(sizeof(ElemBC));
        newel->head=rule;
        base->next=newel;
-   }   
+   }
 }
 
 Regle firstRule(KB base){
