@@ -27,3 +27,22 @@ typedef struct bc{
 }ElemBC;
 
 typedef ElemBC* KB;
+
+
+Regle* createRule();
+
+void addProp(Regle rule, Proposition str);
+
+void createConclusion(Regle rule);
+
+Bool testProp(Premisse rulePrem, Proposition prop);
+
+Bool isPremisseEmpty(Regle rule);
+
+Bool deleteProp(Premisse head, Proposition prop);
+
+Bool isNULL(Premisse head);
+
+Premisse PremisseHead(Regle rule);
+
+Proposition RuleConclusion(Regle rule);

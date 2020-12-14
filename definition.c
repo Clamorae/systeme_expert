@@ -71,7 +71,7 @@ Bool isNULL(Premisse head){
 
 Premisse PremisseHead(Regle rule){
   return rule.premisse;
-}/* vriament pas sur de celle la*/
+}
 
 Proposition RuleConclusion(Regle rule){
   return rule.conclusion;
