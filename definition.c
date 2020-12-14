@@ -52,7 +52,7 @@ Bool deleteProp(Premisse head, Proposition prop){
     else if(!strcmp(head->next->proposition,prop)){
       p=head->next;
       head->next=head->next->next;
-      free(head->next);
+      free(p);
       return NULL;
     }
     else{
