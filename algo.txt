@@ -1,0 +1,12 @@
+Proposition -> Liste de caratère
+Premisse -> Liste de Proposition
+Règle -> Produit cartésien d'une Premisse et d'une Proposition nomée définition
+BaseDeConnaissance -> Liste de Règle
+BaseDeFaits -> Liste de Proposition
+
+Fonction createRule(): Règle
+Début:
+  createRule <- Règle(nouveau?)//TODO: changer ca
+Fin.
+
+Fonction addProp(rule:<Règle>,str:<Proposition>): vide
