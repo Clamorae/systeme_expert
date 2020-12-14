@@ -6,7 +6,48 @@ BaseDeFaits -> Liste de Proposition
 
 Fonction createRule(): Règle
 Début:
-  createRule <- Règle(nouveau?)//TODO: changer ca
+  createRule <- nouveau(Règle)
 Fin.
 
-Fonction addProp(rule:<Règle>,str:<Proposition>): vide
+Fonction addProp(rule:<Règle>,str:<Proposition>)
+Début:
+    rulePremisse <- Premisse(rule)
+    TANT QUE (estPasVide(suivant(rulePremisse))
+        rulePremisse <- suivant(rulePremisse)//TODO: check cette sauce mdr
+    FIN TANT QUE
+    suivant(rulePremisse) <- str
+Fin.
+
+Fonction createConclusion(rule:<Règle>)
+Début:
+  conclusion(rule) <- nouveau(Proposition)
+Fin.
+
+Fonction testProp(rulePrem:<Premisse>, prop:<Proposition>)
+Début:
+    SI estVide(rulePrem) ALORS
+        testProp <- faux
+    SINON:
+        SI rulePrem = prop:ALORS
+            testProp <- vrai
+        SINON:
+            testProp <- testProp(suivant(rulePrem),prop)
+        FIN SI.
+    FIN SI.
+Fin.
+
+Fonction isPremisseEmpty(rule:<Règle>): Booléen
+Début:
+    SI estVide(premisse(rule)):ALORS
+        isPremisseEmpty <- vrai
+    SINON:
+        isPremisseEmpty <- faux
+    FIN SI.
+Fin.
+
+//////////////////
+Fonction deleteProp(rulePrem:<Premisse>,prop:<Proposition>)
+DEBUT
+    SI estVide(rulePrem) OU estVide(suivant(rulePrem)) ALORS
+        deleteProp<-NULL
+    SINON
