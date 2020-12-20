@@ -23,7 +23,7 @@ Début:
   conclusion(rule) <- nouveau(Proposition)
 Fin.
 
-Fonction testProp(rulePrem:<Premisse>, prop:<Proposition>)
+Fonction testProp(rulePrem:<Premisse>, prop:<Proposition>):Booléen
 Début:
     SI estVide(rulePrem) ALORS
         testProp <- faux
@@ -36,6 +36,42 @@ Début:
     FIN SI.
 Fin.
 
+Fonction deleteProp(rulePrem:<Premisse>,prop:<Proposition>)<Premisse>
+DEBUT
+    p<Premisse>
+    teteListe<Premisse>
+    teteListe=rulePrem
+    SI estVide(rulePrem) ALORS
+        deleteProp<-NULL
+    SINON
+        SI rulePrem=prop ALORS 
+            p=suivant(ruleprem)
+            free(ruleprem)
+            deleteprop<-p
+        FIN SI 
+    FIN SI
+    SI suivant(rulePrem)=prop ALORS
+        p=suivant(ruleprem)
+        suivant(ruleprem)=suivant(suivant(ruleprem))
+        free(p)
+        deleteProp<-save
+    SINON
+        ruleprem=suivant(ruleprem)
+    FIN SI
+    TANT QUE !estVide(rulePrem) ALORS
+        SI suivant(rulePrem)=prop ALORS
+            p=suivant(ruleprem)
+            suivant(ruleprem)=suivant(suivant(ruleprem))
+            free(p)
+            deleteProp<-save
+        SINON
+            ruleprem=suivant(ruleprem)
+        FIN SI
+    FIN TANT QUE
+FIN
+
+////////////part2
+
 Fonction isPremisseEmpty(rule:<Règle>): Booléen
 Début:
     SI estVide(premisse(rule)):ALORS
@@ -45,9 +81,15 @@ Début:
     FIN SI.
 Fin.
 
-//////////////////
-Fonction deleteProp(rulePrem:<Premisse>,prop:<Proposition>)
+Fonction premisseHead(rule:<Règle>):Premisse
 DEBUT
-    SI estVide(rulePrem) OU estVide(suivant(rulePrem)) ALORS
-        deleteProp<-NULL
-    SINON
+    premisseHead premisse(rule)
+FIN
+
+Fonction premisseHead(rule:<Règle>):Proposition
+DEBUT
+    premisseHead premisse(conclusion)
+FIN
+
+
+

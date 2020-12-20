@@ -37,7 +37,7 @@ Bool testProp(Premisse rulePrem, Proposition prop);
 
 Bool isPremisseEmpty(Regle rule);
 
-Bool deleteProp(Premisse head, Proposition prop);
+Premisse deleteProp(Premisse head, Proposition prop);
 
 Bool isNULL(Premisse head);
 
