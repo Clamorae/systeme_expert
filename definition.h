@@ -1,9 +1,10 @@
-#include <string.h>
+#ifndef DEFINITION_H
+#define DEFINITION_H
 
-typedef enum {
-  false = 0,
-  true = 1
-} Bool;
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 
 typedef char* Proposition;
 
@@ -26,21 +27,22 @@ typedef struct bc{
 
 typedef ElemBC* KB;
 
-
 Regle* createRule();
 
 void addProp(Regle* rule, Proposition str);
 
-void createConclusion(Regle* rule);
+int createConclusion(Regle* rule);
 
-Bool testProp(Premisse rulePrem, Proposition prop);
+int testProp(Premisse rulePrem, Proposition prop);
 
-Bool isPremisseEmpty(Regle rule);
+int isPremisseEmpty(Regle rule);
 
 Premisse deleteProp(Premisse head, Proposition prop);
 
-Bool isNULL(Premisse head);
+int isNULL(Premisse head);
 
 Premisse PremisseHead(Regle* rule);
 
 Proposition RuleConclusion(Regle* rule);
+
+#endif

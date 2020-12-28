@@ -21,36 +21,36 @@ void addProp(Regle* rule, Proposition str){
   rulePremisse->next = newElem;
 }
 
-void createConclusion(Regle* rule){
+int createConclusion(Regle* rule){
   if (rule->conclusion==NULL){
-    Proposition* newConc = (Proposition*) malloc(sizeof(Proposition));
+    Proposition newConc = (Proposition) malloc(sizeof(char)*255);
     rule->conclusion=newConc;
   }else{
-    return NULL;
+    return -1;
   }
 }
 
-Bool testProp(Premisse rulePrem, Proposition prop){
+int testProp(Premisse rulePrem, Proposition prop){
   if(rulePrem == NULL){
-    return false;
+    return 0;
   }else if (!strcmp(rulePrem->proposition, prop)){
-    return true;
+    return 1;
   }else{
     return testProp(rulePrem->next, prop);
   }
 }
 
-Bool isPremisseEmpty(Regle rule){
+int isPremisseEmpty(Regle rule){
   if(rule.premisse == NULL){
-    return true;
+    return 1;
   }else{
-    return false;
+    return 0;
   }
 }
 
 Premisse deleteProp(Premisse head, Proposition prop){
-  int* p;
-  int* save;
+  Premisse p;
+  Premisse save;
   save=head;
   if (head==NULL){
     return NULL;
@@ -73,12 +73,12 @@ Premisse deleteProp(Premisse head, Proposition prop){
   return save;
 }
 ///////////////////////////////////
-Bool isNULL(Premisse head){
+int isNULL(Premisse head){
   if (head==NULL){
-    return true;
+    return 1;
   }
   else{
-    return false;
+    return 0;
   }
 }
 

@@ -1,5 +1,5 @@
-#include "definition.h"
 #include "base_connaissance.h"
+#include "BC.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,7 +16,7 @@ int main(){
         menuBC(BC);//////////////////TODO
         break;
     case 2:
-        createBF();///////////////////TODO
+        //createBF();///////////////////TODO
         break;
     case 3:
         return 0;
@@ -26,4 +26,3 @@ int main(){
         break;
     }
 }
-
