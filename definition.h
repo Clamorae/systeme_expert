@@ -20,7 +20,7 @@ typedef struct rl{
 }Regle;
 
 typedef struct bc{
-  Regle head;
+  Regle* head;
   struct bc* next;
 }ElemBC;
 
@@ -29,9 +29,9 @@ typedef ElemBC* KB;
 
 Regle* createRule();
 
-void addProp(Regle rule, Proposition str);
+void addProp(Regle* rule, Proposition str);
 
-void createConclusion(Regle rule);
+void createConclusion(Regle* rule);
 
 Bool testProp(Premisse rulePrem, Proposition prop);
 
@@ -41,6 +41,6 @@ Premisse deleteProp(Premisse head, Proposition prop);
 
 Bool isNULL(Premisse head);
 
-Premisse PremisseHead(Regle rule);
+Premisse PremisseHead(Regle* rule);
 
-Proposition RuleConclusion(Regle rule);
+Proposition RuleConclusion(Regle* rule);

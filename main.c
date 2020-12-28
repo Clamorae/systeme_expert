@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 int main(){
+    KB BC=createbasis();
     int menu;
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
     printf("1 - accéder à la base de connaissance\n\n");
@@ -12,12 +13,17 @@ int main(){
     scanf("%d",&menu);
     switch (menu){
     case 1:
-        afficheBC();//////////////////TODO
+        menuBC(BC);//////////////////TODO
         break;
     case 2:
         createBF();///////////////////TODO
         break;
+    case 3:
+        return 0;
+        break;
     default:
+        return 0;
         break;
     }
 }
+

@@ -1,12 +1,12 @@
 #include "definition.h"
 
 Regle* createRule(){
-    Regle* new = (Regle*) malloc(sizeof(Regle));
-    return new;
+  Regle* new = (Regle*) malloc(sizeof(Regle));
+  return new;
 }
 
-void addProp(Regle rule, Proposition str){
-  Premisse rulePremisse = rule.premisse;
+void addProp(Regle* rule, Proposition str){
+  Premisse rulePremisse = rule->premisse;
   ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
   Proposition nprop = malloc(sizeof(char)*255);
   strcpy(nprop, str);
@@ -21,9 +21,13 @@ void addProp(Regle rule, Proposition str){
   rulePremisse->next = newElem;
 }
 
-void createConclusion(Regle rule){
+void createConclusion(Regle* rule){
+  if (rule->conclusion==NULL){
     Proposition* newConc = (Proposition*) malloc(sizeof(Proposition));
-    rule.conclusion=newConc;
+    rule->conclusion=newConc;
+  }else{
+    return NULL;
+  }
 }
 
 Bool testProp(Premisse rulePrem, Proposition prop){
@@ -78,10 +82,10 @@ Bool isNULL(Premisse head){
   }
 }
 
-Premisse PremisseHead(Regle rule){
-  return rule.premisse;
+Premisse PremisseHead(Regle* rule){
+  return rule->premisse;
 }
 
-Proposition RuleConclusion(Regle rule){
-  return rule.conclusion;
+Proposition RuleConclusion(Regle* rule){
+  return rule->conclusion;
 }
