@@ -44,24 +44,6 @@ Bool isPremisseEmpty(Regle rule){
   }
 }
 
-// Bool deleteProp(Premisse head, Proposition prop){
-//     int* p;
-//     //////p=head;
-//     //////head=head->next;
-//     if (head->next!=NULL){
-//         return NULL;
-//     }
-//     else if(!strcmp(head->next->proposition,prop)){
-//       p=head->next;
-//       head->next=head->next->next;
-//       free(p);
-//       return NULL;
-//     }
-//     else{
-//         return deleteProp( head->next, prop);
-//     }
-// }
-
 Premisse deleteProp(Premisse head, Proposition prop){
   int* p;
   int* save;
