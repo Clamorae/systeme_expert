@@ -11,6 +11,7 @@ void afficheBC(KB BC){
         printf("\n");
         puts(conc);
         printf("\n__________________________________________________________________");
+        BC=BC->next;
     }
 }
 
