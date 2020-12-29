@@ -6,19 +6,40 @@ Regle* createRule(){
 }
 
 void addProp(Regle* rule, Proposition str){
-  Premisse rulePremisse = rule->premisse;
+  //Premisse rulePremisse = rule->premisse;
+  //
+  //Proposition nprop = malloc(sizeof(char)*255);
+  //strcpy(nprop, str);
+  //
+  //ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
+  //newElem->proposition = nprop;
+  //newElem->next = NULL;
+  //
+  //if(rulePremisse == NULL){
+  //  rulePremisse = newElem;
+  //}else{
+  //  while(rulePremisse->next != NULL){
+  //    rulePremisse = rulePremisse->next;
+  //  }
+  //  rulePremisse->next = newElem;
+  //}
+  //printf("RESULTAT DE ADDPROP____________________\n");
+  //printf("%s\n",rulePremisse->proposition);
+
+  Premisse *temp = &(rule->premisse);
+
+  while(*temp != NULL){
+    temp = &((*temp)->next);
+  }
+
   ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
   Proposition nprop = malloc(sizeof(char)*255);
   strcpy(nprop, str);
   newElem->proposition = nprop;
   newElem->next = NULL;
-  if(rulePremisse == NULL){
-    rulePremisse = newElem;
-  }
-  while(rulePremisse->next != NULL){
-    rulePremisse = rulePremisse->next;
-  }
-  rulePremisse->next = newElem;
+  *temp = newElem;
+
+
 }
 
 int createConclusion(Regle* rule){

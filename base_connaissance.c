@@ -34,7 +34,6 @@ void addruletoBC(KB base){
    printf("Va manger tes mort et ecris une super conclusion trop cool\n");
    scanf("%s",strbuffer);
    strcpy(rule->conclusion,strbuffer);
-
 }
 
 Regle* firstRule(KB base){

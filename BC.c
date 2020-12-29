@@ -5,8 +5,9 @@ void afficheBC(KB BC){
         Premisse prem=PremisseHead(BC->head);
         Proposition conc=RuleConclusion(BC->head);
         while (prem!=NULL){
-            puts(prem->proposition);
+            printf("%s\n",prem->proposition);
             printf("\n");
+            prem = prem->next;
         }
         printf("\n");
         puts(conc);
