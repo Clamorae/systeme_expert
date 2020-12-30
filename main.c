@@ -1,16 +1,16 @@
 #include "base_connaissance.h"
 #include "BC.h"
+#include "BF.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    KB BC=createbasis();
-    Premisse BF=(Premisse)malloc(sizeof(ElemPremisse));
+void menu(KB BC,Premisse BF){
     int menu;
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
     printf("1 - accéder à la base de connaissance\n\n");
-    printf("2 - Entrer une base de faits et executer le système expert" );
-    printf("3 - quitter\n\n");
+    printf("2 - Entrer une base de faits" );
+    printf("3 - Executer le système expert" );
+    printf("4 - quitter\n\n");
     scanf("%d",&menu);
     switch (menu){
     case 1:
@@ -20,10 +20,17 @@ int main(){
         menuBF(BF);//createBF();///////////////////TODO
         break;
     case 3:
-        return 0;
         break;
     default:
-        return 0;
         break;
     }
 }
+
+int main(){
+    KB BC=createbasis();
+    Premisse BF=(Premisse)malloc(sizeof(ElemPremisse));
+    menu(BC,BF);
+    return 0;
+}
+
+

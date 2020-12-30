@@ -1,4 +1,5 @@
 #include "BF.h"
+#include <string.h>
 
 void addBF(Premisse BF){
 int menu;
@@ -49,7 +50,7 @@ Premisse menuBF(Premisse BF){
     printf("2 - Ajouter une proposition à la base de fait\n\n" );
     //printf("3 - Ajouter une proposition à une régle\n\n");
     printf("4 - Supprimer une proposition\n\n");
-    //printf("5 - Supprimer la proposition d'une régle\n\n");
+    printf("5 - Executer le système expert\n\n");
     printf("6 - Quitter\n\n");
     scanf("%d",&menu);
     switch (menu){
@@ -60,6 +61,7 @@ Premisse menuBF(Premisse BF){
         addBF(BF);
         break;
     case 4:
+    Cleanup: ;
         char strbuffer[255];
         printf("Entrez la proposition que vous souhaitez supprimer\n");
         scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
