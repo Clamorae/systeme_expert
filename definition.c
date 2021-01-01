@@ -58,13 +58,13 @@ Premisse deleteProp(Premisse head, Proposition prop){
   if (head==NULL){
     return NULL;
   }
-  else if (strcmp(head->proposition,prop)){
+  else if (strcmp(head->proposition,prop)==0){
     p=head->next;
     free(head);
     return p;
   }
   do{
-    if(strcmp(head->next->proposition,prop)){
+    if(strcmp(head->next->proposition,prop)==0){
       p=head->next;
       head->next=head->next->next;
       free(p);
