@@ -28,12 +28,11 @@ void addProp(Premisse* temp, Proposition str){
 
   //Premisse *temp = &(rule->premisse);
 
-  if(&((*temp)->proposition) != NULL){
-    Premisse buffer=&temp;
-    Proposition nprop = malloc(sizeof(char)*255);
-    strcpy(nprop, str);
-    buffer->proposition=nprop;
-  }
+  //if((*temp)->proposition != NULL){
+  //  Proposition nprop = malloc(sizeof(char)*255);
+  //  strcpy(nprop, str);
+  //  (*temp)->proposition = nprop;
+  //}
 
   while(&((*temp)->proposition) != NULL){
     temp = &((*temp)->next);
@@ -44,7 +43,7 @@ void addProp(Premisse* temp, Proposition str){
   strcpy(nprop, str);
   newElem->proposition = nprop;
   newElem->next = NULL;
-  //*temp = newElem;
+  *temp = newElem;
 
 }
 

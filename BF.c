@@ -12,7 +12,6 @@ char strbuffer[255];
        printf("2 - retour au menu\n");
        scanf("%d",&menu);
    } while (menu!=2);
-    menuBF(BC,BF);
 }
 
 void afficheBF(KB BC,Premisse BF){
@@ -21,19 +20,22 @@ void afficheBF(KB BC,Premisse BF){
     }else{
         Proposition prop;
         prop=BF->proposition;
-        puts(prop);
+        printf("%s",prop);
         if (BF->next!=NULL){
             do{
                 BF=BF->next;
                 prop=BF->proposition;
-                puts(prop);
+                printf(" - ");
+                printf("%s",prop);
             } while (BF->next!=NULL);
         }
     }
-    menuBF(BC,BF);
 }
 
 Premisse menuBF(KB BC,Premisse BF){
+  int quit = 0;
+  while(quit != 1){
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     afficheBF(BC,BF);
     int wait;
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
@@ -57,9 +59,9 @@ Premisse menuBF(KB BC,Premisse BF){
     case 3:
         //moteur(BC,BF);
     case 4:
-        menu(BC,BF);
     default:
-        return 0;
+        quit = 1;
         break;
     }
+  }
 }
