@@ -23,13 +23,15 @@ void deleteRule(KB BC,int numb){
         printf("La base de connaissance est vide\n\n");
     }else{
         KB save;
-        for(int i=1;i=numb;i++){
+        for(int i=1;i<numb;i++){
+          printf("lol\n");
             save=BC;
             BC=BC->next;
         }
+
         Premisse delete;
         while (BC->head->premisse != NULL){
-            printf("test\n");
+            printf("lel\n");
             delete=BC->head->premisse;
             BC->head->premisse=BC->head->premisse->next;
             free(delete);
