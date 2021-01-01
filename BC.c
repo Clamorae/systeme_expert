@@ -18,9 +18,23 @@ void afficheBC(KB BC){
     }
 }
 
-void deleteRule(KB BC,int numb){
+KB deleteRule(KB BC,int numb){
     if (BC==NULL){
         printf("La base de connaissance est vide\n\n");
+        return BC;
+    }else if(numb==1){
+        KB save;
+        save=BC->next;
+        Premisse delete;
+        while (BC->head->premisse != NULL){
+            delete=BC->head->premisse;
+            BC->head->premisse=BC->head->premisse->next;
+            free(delete);
+        }
+        free(BC->head->conclusion);
+        free(BC->head);
+        free(BC);
+        return save;
     }else{
         KB save;
         for(int i=1;i<numb;i++){
@@ -40,6 +54,7 @@ void deleteRule(KB BC,int numb){
         free(BC->head);
         save->next=BC->next;
         free(BC);
+        return save;
     }
 }
 
@@ -101,7 +116,7 @@ KB menuBC(KB BC, Premisse BF){
           case 2:
           printf("Entrez le numéro de la règle à supprimer\n");
           scanf("%d",&in);
-          deleteRule(BC,in);
+          BC=deleteRule(BC,in);
           break;
           case 3:
           quit = 1;
