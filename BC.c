@@ -23,22 +23,33 @@ KB deleteRule(KB BC,int numb){
         printf("La base de connaissance est vide\n\n");
         return BC;
     }else if(numb==1){
-        KB save;
-        save=BC->next;
-        Premisse delete;
-        while (BC->head->premisse != NULL){
-            delete=BC->head->premisse;
-            BC->head->premisse=BC->head->premisse->next;
-            free(delete);
+        if(BC->next==NULL){
+            Premisse delete;
+            while (BC->head->premisse != NULL){
+                delete=BC->head->premisse;
+                BC->head->premisse=BC->head->premisse->next;
+                free(delete);
+            }
+            free(BC->head->conclusion);
+            return BC;
+        }else{
+            KB save;
+            save=BC->next;
+            Premisse delete;
+            while (BC->head->premisse != NULL){
+                delete=BC->head->premisse;
+                BC->head->premisse=BC->head->premisse->next;
+                free(delete);
+            }
+            free(BC->head->conclusion);
+            free(BC->head);
+            free(BC);
+            return save;
         }
-        free(BC->head->conclusion);
-        free(BC->head);
-        free(BC);
-        return save;
     }else{
         KB save;
         for(int i=1;i<numb;i++){
-            if (BC->next!=NULL){
+            if (BC->next==NULL){
                 printf("cette regle n'existe pas\n\n");
                 return(BC);
             }else{
