@@ -24,7 +24,7 @@ void addruletoBC(KB base){
    do{
        printf("Entrez une proposition\n");
        scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
-       addProp(&(rule->premisse), strbuffer);
+       addProp(rule->premisse, strbuffer);
        printf("Que souhaitez vous faire avec cette nouvelle régle?\n\n");
        printf("1 - Entrez une nouvelle proposition\n");
        printf("2 - Entrez une conclusion et retourner au menu principal\n");

@@ -31,7 +31,7 @@ typedef ElemBC* KB;
 
 Regle* createRule();
 
-void addProp(Premisse* rule, Proposition str);
+void addProp(Premisse rule, Proposition str);
 
 int createConclusion(Regle* rule);
 
