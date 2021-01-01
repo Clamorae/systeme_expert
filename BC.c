@@ -18,6 +18,28 @@ void afficheBC(KB BC){
     }
 }
 
+void deleteRule(KB BC,int numb){
+    if (BC==NULL){
+        printf("La base de connaissance est vide\n\n");
+    }else{
+        KB save;
+        for(int i;i=0;i++){
+            save=BC;
+            BC=BC->next;
+        }
+        Premisse delete;
+        while (BC->head->premisse!=NULL){
+            delete=BC->head->premisse;
+            BC->head->premisse=BC->head->premisse->next;
+            free(delete);
+        }
+        free(BC->head->conclusion);
+        free(BC->head);
+        save->next=BC->next;
+        free(BC);
+    }
+}
+
 void addruletoBC(KB base){
    Regle* rule=createRule();
    if (base->head==NULL){
