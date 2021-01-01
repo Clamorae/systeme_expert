@@ -45,30 +45,29 @@ void afficheBF(KB BC,Premisse BF){
 }
 
 Premisse menuBF(KB BC,Premisse BF){
+    afficheBF(BC,BF);
     int menu;
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
-    printf("1 - Afficher la base de fait\n\n");
-    printf("2 - Ajouter une proposition à la base de fait\n\n" );
+    printf("1 - Ajouter une proposition à la base de fait\n\n" );
     //printf("3 - Ajouter une proposition à une régle\n\n");
-    printf("4 - Supprimer une proposition\n\n");
-    printf("5 - Executer le système expert\n\n");
-    printf("6 - Quitter\n\n");
+    printf("2 - Supprimer une proposition\n\n");
+    printf("3 - Executer le système expert\n\n");
+    printf("4 - Quitter\n\n");
     scanf("%d",&menu);
     switch (menu){
     case 1:
-        afficheBF(BC,BF);
-        break;
-    case 2:
         addBF(BC,BF);
         break;
-    case 4:
+    case 2:
         Cleanup: ;
         char strbuffer[255];
         printf("Entrez la proposition que vous souhaitez supprimer\n");
         scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
         BF=deleteProp(BF,strbuffer);
         break;
-    case 6:
+    case 3:
+        moteur(BC,BF);
+    case 4:
         menu(BC,BF);
         break;
     default:
