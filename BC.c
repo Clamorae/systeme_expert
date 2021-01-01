@@ -1,7 +1,9 @@
 #include "BC.h"
 
 void afficheBC(KB BC){
+  int i = 1;
     while (BC!=NULL){
+        printf("%d\n",i);
         Premisse prem=PremisseHead(BC->head);
         Proposition conc=RuleConclusion(BC->head);
         while (prem!=NULL){
@@ -12,6 +14,7 @@ void afficheBC(KB BC){
         puts(conc);
         printf("\n");
         BC=BC->next;
+        i++;
     }
 }
 
