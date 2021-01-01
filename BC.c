@@ -17,27 +17,24 @@ void afficheBC(KB BC){
 }
 
 KB menuBC(KB BC){
-    int menu;
+    int wait;
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
-    printf("1 - Afficher la base de connaissance\n\n");
-    printf("2 - Ajouter une règle à la base de connaissance\n\n" );
+    printf("1 - Ajouter une règle à la base de connaissance\n\n" );
     //printf("3 - Ajouter une proposition à une régle\n\n");
-    printf("4 - Supprimer une régle\n\n");
+    printf("2 - Supprimer une régle\n\n");
     //printf("5 - Supprimer la proposition d'une régle\n\n");
-    printf("6 - Quitter\n\n");
-    scanf("%d",&menu);
-    switch (menu){
+    printf("3 - Quitter\n\n");
+    scanf("%d",&wait);
+    switch (wait){
     case 1:
-        afficheBC(BC);//////////////////TODO
+        addruletoBC(BC);
         break;
     case 2:
-        addruletoBC(BC);///////////////////TODO
-        afficheBC(BC);
+        /////////////////////////////TODO
         break;
     case 3:
-        return 0;
-        break;
+        menu(BC,BF);
     default:
         return 0;
         break;

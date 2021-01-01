@@ -1,8 +1,4 @@
-#include "base_connaissance.h"
-#include "BC.h"
-#include "BF.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 void menu(KB BC,Premisse BF){
     int menu;
@@ -15,12 +11,13 @@ void menu(KB BC,Premisse BF){
     scanf("%d",&menu);
     switch (menu){
     case 1:
-        menuBC(BC);//////////////////TODO
+        menuBC(BC,BF);//////////////////TODO
         break;
     case 2:
-        menuBF(BF);//createBF();///////////////////TODO
+        menuBF(BC,BF);//createBF();///////////////////TODO
         break;
     case 3:
+        moteur(BC,BF);
         break;
     default:
         break;
