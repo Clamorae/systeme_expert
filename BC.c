@@ -15,12 +15,12 @@ void afficheBC(KB BC){
     }
 }
 
-void deleteRule(KB BC,Proposition conc){
+void deleteRule(KB BC,int numb){
     if (BC==NULL){
         printf("La base de connaissance est vide\n\n");
     }else{
         KB save;
-        while (BC->head->conclusion!=conc||BC->head!=NULL){
+        for(int i;i=0;i++){
             save=BC;
             BC=BC->next;
         }
