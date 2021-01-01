@@ -5,60 +5,23 @@ Regle* createRule(){
   return new;
 }
 
-void addProp(Premisse BF, Proposition str){
+void addProp(Premisse* bf, Proposition str){
   Proposition nprop = malloc(sizeof(char)*255);
-  if (BF->proposition!=NULL){
-    strcpy(nprop,str);
-    BF->proposition=nprop;
+  ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
+  strcpy(nprop, str);
+
+  newElem->proposition = nprop;
+  newElem->next = NULL;
+
+  if(*bf == NULL){
+    *bf = newElem;
   }else{
-    while (BF->next!=NULL){
-      BF=BF->next;
+    Premisse temp = *bf;
+    while(temp->next != NULL){
+      temp = temp->next;
     }
-    ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
-    strcpy(nprop,str);
-    newElem->proposition=nprop;
-    BF->next=newElem;
+    temp->next = newElem;
   }
-
-  //Premisse rulePremisse = rule->premisse;
-  //
-  //Proposition nprop = malloc(sizeof(char)*255);
-  //strcpy(nprop, str);
-  //
-  //ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
-  //newElem->proposition = nprop;
-  //newElem->next = NULL;
-  //
-  //if(rulePremisse == NULL){
-  //  rulePremisse = newElem;
-  //}else{
-  //  while(rulePremisse->next != NULL){
-  //    rulePremisse = rulePremisse->next;
-  //  }
-  //  rulePremisse->next = newElem;
-  //}
-  //printf("RESULTAT DE ADDPROP____________________\n");
-  //printf("%s\n",rulePremisse->proposition);
-
-  //Premisse *temp = &(rule->premisse);
-
-  //if((*temp)->proposition != NULL){
-  //  Proposition nprop = malloc(sizeof(char)*255);
-  //  strcpy(nprop, str);
-  //  (*temp)->proposition = nprop;
-  //}
-
-  // while(&((*temp)->proposition) != NULL){
-  //   temp = &((*temp)->next);
-  // }
-
-  //ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
-  //Proposition nprop = malloc(sizeof(char)*255);
-  //strcpy(nprop, str);
-  //newElem->proposition = nprop;
-  //newElem->next = NULL;
-  //*temp = newElem;
-
 }
 
 int createConclusion(Regle* rule){

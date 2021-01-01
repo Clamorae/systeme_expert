@@ -6,7 +6,7 @@ char strbuffer[255];
    do{
        printf("Entrez une proposition\n");
        scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
-       addProp(BF,strbuffer);
+       addProp(&BF,strbuffer);
        printf("Que souhaitez vous faire?\n\n");
        printf("1 - Entrez une nouvelle proposition\n");
        printf("2 - retour au menu\n");
