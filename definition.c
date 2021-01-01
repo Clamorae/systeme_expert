@@ -5,7 +5,21 @@ Regle* createRule(){
   return new;
 }
 
-void addProp(Premisse* temp, Proposition str){
+void addProp(Premisse BF, Proposition str){
+  Proposition nprop = malloc(sizeof(char)*255);
+  if (BF->proposition!=NULL){
+    strcpy(nprop,str);
+    BF->proposition=nprop;
+  }else{
+    while (BF->next!=NULL){
+      BF=BF->next;
+    }
+    ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
+    strcpy(nprop,str);
+    newElem->proposition=nprop;
+    BF->next=newElem;
+  }
+
   //Premisse rulePremisse = rule->premisse;
   //
   //Proposition nprop = malloc(sizeof(char)*255);
@@ -34,16 +48,16 @@ void addProp(Premisse* temp, Proposition str){
   //  (*temp)->proposition = nprop;
   //}
 
-  while(&((*temp)->proposition) != NULL){
-    temp = &((*temp)->next);
-  }
+  // while(&((*temp)->proposition) != NULL){
+  //   temp = &((*temp)->next);
+  // }
 
-  ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
-  Proposition nprop = malloc(sizeof(char)*255);
-  strcpy(nprop, str);
-  newElem->proposition = nprop;
-  newElem->next = NULL;
-  *temp = newElem;
+  //ElemPremisse *newElem = malloc(sizeof(ElemPremisse));
+  //Proposition nprop = malloc(sizeof(char)*255);
+  //strcpy(nprop, str);
+  //newElem->proposition = nprop;
+  //newElem->next = NULL;
+  //*temp = newElem;
 
 }
 

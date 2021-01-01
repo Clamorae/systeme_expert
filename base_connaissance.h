@@ -9,7 +9,6 @@
 
 
 KB createbasis();
-void addruletoBC(KB base);
 Regle* firstRule(KB base);
 
 #endif
