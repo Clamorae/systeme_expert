@@ -61,7 +61,7 @@ Premisse menuBF(Premisse BF){
         addBF(BF);
         break;
     case 4:
-    Cleanup: ;
+        Cleanup: ;
         char strbuffer[255];
         printf("Entrez la proposition que vous souhaitez supprimer\n");
         scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
