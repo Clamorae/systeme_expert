@@ -7,16 +7,7 @@ char strbuffer[255];
    do{
        printf("Entrez une proposition\n");
        scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
-       if (BF->proposition==NULL){
-           BF->proposition=strbuffer;
-       }else{
-           while (BF->next!=NULL){
-               BF=BF->next;
-           }
-           Premisse newel=(Premisse)malloc(sizeof(ElemPremisse));
-           newel->proposition=strbuffer;
-           BF->next=newel;
-       }
+       addProp(&BF,strbuffer);
        printf("Que souhaitez vous faire?\n\n");
        printf("1 - Entrez une nouvelle proposition\n");
        printf("2 - retour au menu\n");
@@ -38,7 +29,7 @@ void afficheBF(Premisse BF){
                 prop=BF->proposition;
                 puts(prop);
             } while (BF->next!=NULL);
-        } 
+        }
     }
     menuBF(BF);
 }
@@ -61,7 +52,7 @@ Premisse menuBF(Premisse BF){
         addBF(BF);
         break;
     case 4:
-    Cleanup: ;
+        Cleanup:;
         char strbuffer[255];
         printf("Entrez la proposition que vous souhaitez supprimer\n");
         scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);

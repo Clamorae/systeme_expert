@@ -27,9 +27,11 @@ typedef struct bc{
 
 typedef ElemBC* KB;
 
+
+
 Regle* createRule();
 
-void addProp(Regle* rule, Proposition str);
+void addProp(Premisse* rule, Proposition str);
 
 int createConclusion(Regle* rule);
 

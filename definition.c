@@ -5,7 +5,7 @@ Regle* createRule(){
   return new;
 }
 
-void addProp(Regle* rule, Proposition str){
+void addProp(Premisse* temp, Proposition str){
   //Premisse rulePremisse = rule->premisse;
   //
   //Proposition nprop = malloc(sizeof(char)*255);
@@ -26,9 +26,9 @@ void addProp(Regle* rule, Proposition str){
   //printf("RESULTAT DE ADDPROP____________________\n");
   //printf("%s\n",rulePremisse->proposition);
 
-  Premisse *temp = &(rule->premisse);
+  //Premisse *temp = &(rule->premisse);
 
-  while(*temp != NULL){
+  while(&((*temp)->proposition) != NULL){
     temp = &((*temp)->next);
   }
 
@@ -38,7 +38,6 @@ void addProp(Regle* rule, Proposition str){
   newElem->proposition = nprop;
   newElem->next = NULL;
   *temp = newElem;
-
 
 }
 

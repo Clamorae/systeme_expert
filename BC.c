@@ -18,6 +18,7 @@ void afficheBC(KB BC){
 
 KB menuBC(KB BC){
     int menu;
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
     printf("1 - Afficher la base de connaissance\n\n");
     printf("2 - Ajouter une règle à la base de connaissance\n\n" );
