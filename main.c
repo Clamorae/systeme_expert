@@ -10,12 +10,13 @@ void menu(KB BC,Premisse BF){
     scanf("%d",&menu);
     switch (menu){
     case 1:
-        menuBC(BC);//////////////////TODO
+        menuBC(BC,BF);//////////////////TODO
         break;
     case 2:
         menuBF(BC,BF);//createBF();///////////////////TODO
         break;
     case 3:
+        moteur(BC,BF);
         break;
     default:
         break;

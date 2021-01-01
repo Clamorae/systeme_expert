@@ -1,6 +1,4 @@
 #include "BF.h"
-#include "main.h"
-#include <string.h>
 
 void addBF(KB BC,Premisse BF){
 int menu;
@@ -46,15 +44,15 @@ void afficheBF(KB BC,Premisse BF){
 
 Premisse menuBF(KB BC,Premisse BF){
     afficheBF(BC,BF);
-    int menu;
+    int wait;
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
     printf("1 - Ajouter une proposition à la base de fait\n\n" );
     //printf("3 - Ajouter une proposition à une régle\n\n");
     printf("2 - Supprimer une proposition\n\n");
     printf("3 - Executer le système expert\n\n");
     printf("4 - Quitter\n\n");
-    scanf("%d",&menu);
-    switch (menu){
+    scanf("%d",&wait);
+    switch (wait){
     case 1:
         addBF(BC,BF);
         break;
@@ -69,7 +67,6 @@ Premisse menuBF(KB BC,Premisse BF){
         moteur(BC,BF);
     case 4:
         menu(BC,BF);
-        break;
     default:
         return 0;
         break;

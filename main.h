@@ -1,3 +1,6 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 #include "base_connaissance.h"
 #include "BC.h"
 #include "BF.h"
@@ -6,3 +9,5 @@
 
 void menu(KB BC,Premisse BF);
 int main();
+
+#endif
