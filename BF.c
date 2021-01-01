@@ -55,7 +55,7 @@ Premisse menuBF(KB BC,Premisse BF){
         BF=deleteProp(BF,strbuffer);
         break;
     case 3:
-        moteur(BC,BF);
+        //moteur(BC,BF);
     case 4:
         menu(BC,BF);
     default:

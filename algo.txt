@@ -13,7 +13,7 @@ Fonction addProp(rule:<Règle>,str:<Proposition>)
 Début:
     rulePremisse <- Premisse(rule)
     TANT QUE (estPasVide(suivant(rulePremisse))
-        rulePremisse <- suivant(rulePremisse)//TODO: check cette sauce mdr
+        rulePremisse <- suivant(rulePremisse)
     FIN TANT QUE
     suivant(rulePremisse) <- str
 Fin.
@@ -44,11 +44,11 @@ DEBUT
     SI estVide(rulePrem) ALORS
         deleteProp<-NULL
     SINON
-        SI rulePrem=prop ALORS 
+        SI rulePrem=prop ALORS
             p=suivant(ruleprem)
             free(ruleprem)
             deleteprop<-p
-        FIN SI 
+        FIN SI
     FIN SI
     SI suivant(rulePrem)=prop ALORS
         p=suivant(ruleprem)
@@ -90,6 +90,3 @@ Fonction premisseHead(rule:<Règle>):Proposition
 DEBUT
     premisseHead premisse(conclusion)
 FIN
-
-
-

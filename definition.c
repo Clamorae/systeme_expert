@@ -37,7 +37,7 @@ void addProp(Premisse* temp, Proposition str){
   strcpy(nprop, str);
   newElem->proposition = nprop;
   newElem->next = NULL;
-  *temp = newElem;
+  //*temp = newElem;
 
 }
 
