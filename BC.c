@@ -16,7 +16,7 @@ void afficheBC(KB BC){
     }
 }
 
-KB menuBC(KB BC){
+KB menuBC(KB BC, Premisse BF){
     int wait;
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
