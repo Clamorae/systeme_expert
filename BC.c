@@ -38,7 +38,7 @@ KB deleteRule(KB BC,int numb){
     }else{
         KB save;
         for(int i=1;i<numb;i++){
-            if (BC->next!=NULL){
+            if (BC->next==NULL){
                 printf("cette regle n'existe pas\n\n");
                 return(BC);
             }else{
