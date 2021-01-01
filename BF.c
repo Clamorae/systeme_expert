@@ -1,12 +1,12 @@
 #include "BF.h"
 
-void addBF(KB BC,Premisse BF){
+void addBF(KB BC,Premisse* BF){
 int menu;
 char strbuffer[255];
    do{
        printf("Entrez une proposition\n");
        scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
-       addProp(&BF,strbuffer);
+       addProp(BF,strbuffer);
        printf("Que souhaitez vous faire?\n\n");
        printf("1 - Entrez une nouvelle proposition\n");
        printf("2 - retour au menu\n");
@@ -15,20 +15,23 @@ char strbuffer[255];
 }
 
 void afficheBF(KB BC,Premisse BF){
-    if (BF==NULL){
-        printf("il n'y a pas encore de base de  fait\n");
+    if(BF){
+      printf("La base de fait contient:\n");
+      Proposition prop;
+      prop=BF->proposition;
+      printf("%s",prop);
+      if (BF->next!=NULL){
+          do{
+              BF=BF->next;
+              prop=BF->proposition;
+              printf(" - ");
+              printf("%s",prop);
+          } while (BF->next!=NULL);
+      }
+      printf("\n");
     }else{
-        Proposition prop;
-        prop=BF->proposition;
-        printf("%s",prop);
-        if (BF->next!=NULL){
-            do{
-                BF=BF->next;
-                prop=BF->proposition;
-                printf(" - ");
-                printf("%s",prop);
-            } while (BF->next!=NULL);
-        }
+      printf("La base de fait est vide\n");
+
     }
 }
 
@@ -47,7 +50,7 @@ Premisse menuBF(KB BC,Premisse BF){
     scanf("%d",&wait);
     switch (wait){
     case 1:
-        addBF(BC,BF);
+        addBF(BC,&BF);
         break;
     case 2:
         Cleanup: ;

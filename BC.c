@@ -3,7 +3,7 @@
 void afficheBC(KB BC){
   int i = 1;
     while (BC!=NULL){
-        printf("%d\n",i);
+        printf("%d>",i);
         Premisse prem=PremisseHead(BC->head);
         Proposition conc=RuleConclusion(BC->head);
         while (prem!=NULL){
@@ -23,12 +23,13 @@ void deleteRule(KB BC,int numb){
         printf("La base de connaissance est vide\n\n");
     }else{
         KB save;
-        for(int i;i=0;i++){
+        for(int i=1;i=numb;i++){
             save=BC;
             BC=BC->next;
         }
         Premisse delete;
-        while (BC->head->premisse!=NULL){
+        while (BC->head->premisse != NULL){
+            printf("test\n");
             delete=BC->head->premisse;
             BC->head->premisse=BC->head->premisse->next;
             free(delete);
@@ -90,12 +91,15 @@ KB menuBC(KB BC, Premisse BF){
       //printf("5 - Supprimer la proposition d'une régle\n\n");
       printf("3 - Quitter\n\n");
       scanf("%d",&wait);
+      int in;
       switch (wait){
         case 1:
           addruletoBC(BC);
           break;
           case 2:
-          /////////////////////////////TODO
+          printf("Entrez le numéro de la règle à supprimer\n");
+          scanf("%d",&in);
+          deleteRule(BC,in);
           break;
           case 3:
           quit = 1;

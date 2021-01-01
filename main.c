@@ -26,7 +26,7 @@ void menu(KB BC,Premisse BF){
 
 int main(){
     KB BC=createbasis();
-    Premisse BF=(Premisse)malloc(sizeof(ElemPremisse));
+    Premisse BF;
     menu(BC,BF);
     return 0;
 }
