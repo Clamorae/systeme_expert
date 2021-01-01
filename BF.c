@@ -15,7 +15,7 @@ char strbuffer[255];
 }
 
 void afficheBF(KB BC,Premisse BF){
-    if (BF->proposition==NULL){
+    if (BF==NULL){
         printf("il n'y a pas encore de base de  fait\n");
     }else{
         Proposition prop;
