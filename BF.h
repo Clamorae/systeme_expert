@@ -3,6 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void addBF(Premisse BF);
-void afficheBF(Premisse BF);
-Premisse menuBF(Premisse BF);
+void addBF(KB BC,Premisse BF);
+void afficheBF(KB BC,Premisse BF);
+Premisse menuBF(KB BC,Premisse BF);

@@ -1,7 +1,8 @@
 #include "BF.h"
+#include "main.h"
 #include <string.h>
 
-void addBF(Premisse BF){
+void addBF(KB BC,Premisse BF){
 int menu;
 char strbuffer[255];
    do{
@@ -22,10 +23,10 @@ char strbuffer[255];
        printf("2 - retour au menu\n");
        scanf("%d",&menu);
    } while (menu!=2);
-    menuBF(BF);
+    menuBF(BC,BF);
 }
 
-void afficheBF(Premisse BF){
+void afficheBF(KB BC,Premisse BF){
     if (BF->proposition==NULL){
         printf("il n'y a pas encore de base de  fait\n");
     }else{
@@ -40,10 +41,10 @@ void afficheBF(Premisse BF){
             } while (BF->next!=NULL);
         } 
     }
-    menuBF(BF);
+    menuBF(BC,BF);
 }
 
-Premisse menuBF(Premisse BF){
+Premisse menuBF(KB BC,Premisse BF){
     int menu;
     printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
     printf("1 - Afficher la base de fait\n\n");
@@ -55,10 +56,10 @@ Premisse menuBF(Premisse BF){
     scanf("%d",&menu);
     switch (menu){
     case 1:
-        afficheBF(BF);
+        afficheBF(BC,BF);
         break;
     case 2:
-        addBF(BF);
+        addBF(BC,BF);
         break;
     case 4:
         Cleanup: ;
@@ -66,6 +67,9 @@ Premisse menuBF(Premisse BF){
         printf("Entrez la proposition que vous souhaitez supprimer\n");
         scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
         BF=deleteProp(BF,strbuffer);
+        break;
+    case 6:
+        menu(BC,BF);
         break;
     default:
         return 0;
