@@ -75,7 +75,7 @@ Premisse deleteProp(Premisse head, Proposition prop){
   } while (head!=NULL);
   return save;
 }
-///////////////////////////////////
+
 int isNULL(Premisse head){/////////////////////////////////not used actually
   if (head==NULL){
     return 1;

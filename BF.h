@@ -9,7 +9,13 @@
 
 
 void addBF(KB BC,Premisse* BF);
+// cette fonction va prendre en entrée la base de connaissance et la base de fait pour que l'utilsateur puisse ajouter de nouvelles proposition à la base de fait
+
 void afficheBF(KB BC,Premisse BF);
+//cette fonction va parcourir la base de faits pour acchicher chacune des propositions qui la compose les une après les autres 
+
 Premisse menuBF(KB BC,Premisse BF);
+//cette fonction est appelée depuis le menu et permet à l'utilisateur d'effectuer chacune des actions utiles en rapport avec la base de fait ou de lancer le moteru d'inférence
+ 
 
 #endif

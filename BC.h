@@ -9,8 +9,15 @@
 
 
 void afficheBC(KB BC);
+// la fonction va parcourir toute la prémisse de la base de connaissance fourni en entrée pour écrire chacuen des propositions puis écrire une flchez et la conclusion
+
 KB menuBC(KB BC,Premisse BF);
+//cette fonction va prendre en entrée la base de connaissance et la base et permet de modifier et d'accèder à la base de connaissances
+
 void addruletoBC(KB base);
+//cette fonction va prendre en entrée la base de connaissance 
+
 KB deleteRule(KB BC,int numb);
+
 
 #endif
