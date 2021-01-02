@@ -11,6 +11,6 @@
 void afficheBC(KB BC);
 KB menuBC(KB BC,Premisse BF);
 void addruletoBC(KB base);
-KB deleteRule(KB BC,int numb);
+int deleteRule(KB* BC, int i);
 
 #endif
