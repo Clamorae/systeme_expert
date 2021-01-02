@@ -19,6 +19,10 @@ void afficheBC(KB BC){
 }
 
 int deleteRule(KB* BC, int i){
+  if((*BC)->head == NULL){
+    printf("yeet\n");
+    return -1;
+  }
   int j = 1;
   KB toDelete = *BC;
   KB toConnect = *BC;
@@ -32,87 +36,23 @@ int deleteRule(KB* BC, int i){
     }
     j++;
   }
-  printf("voici:\n");
-  printf("%s\n",toDelete->head->conclusion);
 
   Premisse premToDel = toDelete->head->premisse;
   Proposition propToDel = toDelete->head->conclusion;
-  if(toDelete->next != NULL){
+
+  if(toDelete == toConnect){
+    (*BC)=(*BC)->next;
+  }else if(toDelete->next != NULL){//millieu de liste
     toConnect->next = toConnect->next->next;
+  }else{
+    toConnect->next = NULL;
   }
 
-
-
-  while(premToDel != NULL){
-    free(premToDel->proposition);
-    premToDel = premToDel->next;
+  if ((*BC) == NULL){
+    (*BC)= createbasis();
   }
-  free(premToDel);
-
-  int rien;
-  scanf("%d",&rien);
 }
-//BC->head->premisse->proposition
 
-//KB deleteRule(KB *BC,int numb){
-//    if ((*BC)==NULL){
-//        printf("La base de connaissance est vide\n\n");
-//        return (*BC);
-//    }else if(numb==1){
-//        if((*BC)->next==NULL){
-//            Premisse delete;
-//            while ((*BC)->head->premisse != NULL){
-//                delete=(*BC)->head->premisse;
-//                (*BC)->head->premisse=(*BC)->head->premisse->next;
-//                free(delete);
-//            }
-//            free((*BC)->head->conclusion);
-//            free((*BC)->head);
-//            free((*BC));
-//            (*BC)=createbasis();
-//            return (*BC);
-//        }else{
-//            KB save;
-//            save=(*BC)->next;
-//            Premisse delete;
-//            //(*BC).head.
-//            while ((*BC)->head->premisse != NULL){
-//                delete=(*BC)->head->premisse;
-//                (*BC)->head->premisse=(*BC)->head->premisse->next;
-//                free(delete);
-//            }
-//            free((*BC)->head->conclusion);
-//            free((*BC)->head);
-//            free((*BC));
-//            return save;
-//        }
-//    }else{
-//        KB save;
-//        for(int i=1;i<numb;i++){
-//            if ((*BC)->next==NULL){
-//                printf("cette regle n'existe pas\n\n");
-//                return((*BC));
-//            }else{
-//                printf("lol\n");
-//                save=(*BC);
-//                (*BC)=(*BC)->next;
-//            }
-//        }
-//
-//        Premisse delete;
-//        while ((*BC)->head->premisse != NULL){
-//            printf("lel\n");
-//            delete=(*BC)->head->premisse;
-//            (*BC)->head->premisse=(*BC)->head->premisse->next;
-//            free(delete);
-//        }
-//        free((*BC)->head->conclusion);
-//        free((*BC)->head);
-//        save->next=(*BC)->next;
-//        free((*BC));
-//        return save;
-//    }
-//}
 
 void addruletoBC(KB base){
    Regle* rule=createRule();

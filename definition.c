@@ -86,7 +86,7 @@ int isNULL(Premisse head){/////////////////////////////////not used actually
 }
 
 Premisse PremisseHead(Regle* rule){
-  return rule->premisse->proposition;
+  return rule->premisse;
 }
 
 Proposition RuleConclusion(Regle* rule){
