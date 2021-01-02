@@ -49,22 +49,22 @@ Premisse menuBF(KB BC,Premisse BF){
     printf("4 - Quitter\n\n");
     scanf("%d",&wait);
     switch (wait){
-    case 1:
-        addBF(BC,&BF);
-        break;
-    case 2:
-        Cleanup: ;
-        char strbuffer[255];
-        printf("Entrez la proposition que vous souhaitez supprimer\n");
-        scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
-        BF=deleteProp(BF,strbuffer);
-        break;
-    case 3:
-        //moteur(BC,BF);
-    case 4:
-    default:
-        quit = 1;
-        break;
+      case 1:
+          addBF(BC,&BF);
+          break;
+      case 2:
+          Cleanup: ;
+          char strbuffer[255];
+          printf("Entrez la proposition que vous souhaitez supprimer\n");
+          scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
+          BF=deleteProp(BF,strbuffer);
+          break;
+      case 3:
+          //moteur(BC,BF);
+      case 4:
+      default:
+          quit = 1;
+          break;
     }
   }
 }

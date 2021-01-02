@@ -1,7 +1,7 @@
 #include "BC.h"
 
 void afficheBC(KB BC){
-  int i = 1;
+    int i = 1;
     while (BC!=NULL){
         printf("%d>",i);
         Premisse prem=PremisseHead(BC->head);
@@ -140,7 +140,7 @@ void addruletoBC(KB base){
        scanf("%d",&menu);
    } while (menu!=2);
    createConclusion(rule);
-   printf("Va manger tes mort et ecris une super conclusion trop cool\n");
+   printf("Entrez une conclusion\n");
    scanf("%s",strbuffer);
    strcpy(rule->conclusion,strbuffer);
 }
