@@ -4,6 +4,7 @@
 #include "base_connaissance.h"
 #include "BC.h"
 #include "BF.h"
+#include "moteur.h"
 #include <stdio.h>
 #include <stdlib.h>
 

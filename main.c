@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 void menu(KB BC,Premisse BF){
     int menu;
     int quit=0;
@@ -8,7 +9,7 @@ void menu(KB BC,Premisse BF){
         printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
         printf("1 - accéder à la base de connaissance\n\n");
         printf("2 - Entrer une base de faits\n\n" );
-        printf("3 - Executer le système expert\n\n" );
+        //printf("3 - Executer le système expert\n\n" );
         printf("4 - quitter\n\n");
         scanf("%d",&menu);
         switch (menu){
@@ -18,9 +19,9 @@ void menu(KB BC,Premisse BF){
         case 2:
             menuBF(BC,BF);//createBF();///////////////////TODO
             break;
-        case 3:
-            //moteur(BC,BF);
-            break;
+        //case 3:
+        //    moteur(BF,BC);
+        //    break;
         case 4:
             quit=1;
         default:

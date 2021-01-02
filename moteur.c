@@ -8,12 +8,13 @@ void moteur(Premisse BF, KB BC){
     }else if (BC->head==NULL){
         printf("La base de connaissance est vide\n");
     }else{
+        KB save = BC;
         int buffer;
         Premisse end=BF;
         while (end->next!=NULL){
             end=end->next;
         }
-        
+
         do{
             do{
                 buffer=testProp(BC->head->premisse,BF->proposition);
@@ -30,11 +31,12 @@ void moteur(Premisse BF, KB BC){
                 }
                 BC=BC->next;
             }while (BC!=NULL);
+            BC=save;
             BF=BF->next;
         } while (BF!=NULL);
-        
+
     }
-    
-    
+
+
 
 }
