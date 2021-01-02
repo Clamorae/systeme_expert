@@ -43,7 +43,7 @@ int testProp(Premisse rulePrem, Proposition prop){
   }
 }
 
-int isPremisseEmpty(Regle rule){
+int isPremisseEmpty(Regle rule){/////////////////////////////////not used actually
   if(rule.premisse == NULL){
     return 1;
   }else{
@@ -76,7 +76,7 @@ Premisse deleteProp(Premisse head, Proposition prop){
   return save;
 }
 ///////////////////////////////////
-int isNULL(Premisse head){
+int isNULL(Premisse head){/////////////////////////////////not used actually
   if (head==NULL){
     return 1;
   }
@@ -86,7 +86,7 @@ int isNULL(Premisse head){
 }
 
 Premisse PremisseHead(Regle* rule){
-  return rule->premisse;
+  return rule->premisse->proposition;
 }
 
 Proposition RuleConclusion(Regle* rule){
