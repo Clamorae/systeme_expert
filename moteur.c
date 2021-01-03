@@ -3,12 +3,15 @@
 #include "moteur.h"
 
 void moteur(Premisse BF, KB BC){
-    if (BF->proposition==NULL){
+    system("clear");
+    if (BF==NULL){
         printf("La base de fait est vide\n");
     }else if (BC->head==NULL){
         printf("La base de connaissance est vide\n");
     }else{
+        printf("Les faits vrais sont :\n\n");
         KB save = BC;
+        Premisse saveBF = BF;
         int buffer;
         Premisse end=BF;
         while (end->next!=NULL){
@@ -16,6 +19,7 @@ void moteur(Premisse BF, KB BC){
         }
 
         do{
+            printf(">%s\n",BF->proposition);
             do{
                 buffer=testProp(BC->head->premisse,BF->proposition);
                 if (buffer==1){
@@ -25,8 +29,6 @@ void moteur(Premisse BF, KB BC){
                         newel->proposition=BC->head->conclusion;
                         end->next=newel;
                         end=newel;
-                        puts(end->proposition);
-                        printf("\n");
                     }
                 }
                 BC=BC->next;
@@ -36,7 +38,8 @@ void moteur(Premisse BF, KB BC){
         } while (BF!=NULL);
 
     }
-
-
-
+    printf("\nAppuyer sur entrer pour quitter...\n");
+    char enter = 0;
+    getchar();
+    while (enter != '\r' && enter != '\n') { enter = getchar(); }
 }

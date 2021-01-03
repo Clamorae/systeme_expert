@@ -2,6 +2,8 @@
 
 Regle* createRule(){
   Regle* new = (Regle*) malloc(sizeof(Regle));
+  new->premisse = NULL;
+  new->conclusion = NULL;
   return new;
 }
 

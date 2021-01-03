@@ -20,7 +20,6 @@ void afficheBC(KB BC){
 
 int deleteRule(KB* BC, int i){
   if((*BC)->head == NULL){
-    printf("yeet\n");
     return -1;
   }
   int j = 1;
@@ -28,7 +27,6 @@ int deleteRule(KB* BC, int i){
   KB toConnect = *BC;
   while(j != i){
     if(toDelete->next == NULL){
-      printf("Hors dimension\n");
       return -1;
     }else{
       toConnect = toDelete;
@@ -49,7 +47,7 @@ int deleteRule(KB* BC, int i){
   }
 
   if ((*BC) == NULL){
-    (*BC)= createbasis();
+    (*BC)= malloc(sizeof(ElemBC));
   }
 }
 
@@ -71,17 +69,23 @@ void addruletoBC(KB base){
    int menu;
    char strbuffer[255];
    do{
-       printf("Entrez une proposition\n");
-       scanf("%s",strbuffer);//fgets(strbuffer,255,stdin);
+       system("clear");
+       printf("Entrez une proposition:\n");
+       getchar();
+       fgets(strbuffer,255,stdin);
+       strtok(strbuffer,"\n");
        addProp(&(rule->premisse), strbuffer);
-       printf("Que souhaitez vous faire avec cette nouvelle régle?\n\n");
-       printf("1 - Entrez une nouvelle proposition\n");
-       printf("2 - Entrez une conclusion et retourner au menu principal\n");
+       system("clear");
+       printf("Que souhaitez vous faire avec cette nouvelle regle?\n\n");
+       printf("1> Entrer une nouvelle proposition\n");
+       printf("2> Entrer une conclusion et retourner au menu principal\n");
        scanf("%d",&menu);
    } while (menu!=2);
    createConclusion(rule);
-   printf("Entrez une conclusion\n");
-   scanf("%s",strbuffer);
+   printf("Entrez une conclusion:\n");
+   getchar();
+   fgets(strbuffer,255,stdin);
+   strtok(strbuffer,"\n");
    strcpy(rule->conclusion,strbuffer);
 }
 
@@ -89,30 +93,31 @@ KB menuBC(KB BC, Premisse BF){
     int wait;
     int quit = 0;
     while(quit != 1){
-      printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      system("clear");
+      printf("BASE DE CONNAISSANCE\\_____________________________________________________\n\n");
       if((BC->head) == NULL){
-        printf("Il n'y as acutellement aucune règle dans la base de connaissances\n");
+        printf("Il n'y as acutellement aucune regle dans la base de connaissances\n\n");
       }else{
         printf("La base de connaissance est:\n\n");
         afficheBC(BC);
       }
-
-      printf("Entrez le numéro correspondant à l'action que vous souhaitez effectuer\n\n");
-      printf("1 - Ajouter une règle à la base de connaissance\n\n" );
-      //printf("3 - Ajouter une proposition à une régle\n\n");
-      printf("2 - Supprimer une régle\n\n");
-      //printf("5 - Supprimer la proposition d'une régle\n\n");
-      printf("3 - Quitter\n\n");
+      printf("___________________________________________________________________________\n");
+      printf("Entrez le numero correspondant a l'action que vous souhaitez effectuer\n\n");
+      printf("1> Ajouter une regle a la base de connaissance\n\n" );
+      printf("2> Supprimer une regle\n\n");
+      printf("3> Retour au menu precedent\n\n");
       scanf("%d",&wait);
       int in;
       switch (wait){
         case 1:
           addruletoBC(BC);
+          saveBCtoFile(BC);
           break;
           case 2:
-          printf("Entrez le numéro de la règle à supprimer\n");
+          printf("Entrez le numero de la regle a supprimer\n");
           scanf("%d",&in);
           deleteRule(&BC,in);
+          saveBCtoFile(BC);
           break;
           case 3:
           quit = 1;
@@ -121,4 +126,23 @@ KB menuBC(KB BC, Premisse BF){
           break;
         }
     }
+}
+
+int saveBCtoFile(KB BC){
+  FILE *fp = fopen("BC.sav","w+");
+  KB rule = BC;
+  Premisse premisse;
+  while(rule != NULL){
+    premisse = rule->head->premisse;
+    while(premisse != NULL){
+      fputs(premisse->proposition,fp);
+      fputs("\n",fp);
+      premisse = premisse->next;
+    }
+    fputs("conk:\n",fp);
+    fputs(rule->head->conclusion,fp);
+    fputs("\n",fp);
+    rule = rule->next;
+  }
+  fclose(fp);
 }
