@@ -34,9 +34,28 @@ void moteur(Premisse BF, KB BC){
             BC=save;
             BF=BF->next;
         } while (BF!=NULL);
-
     }
-
-
-
+    Premisse r;
+    while (!isNULL(BF)){
+        r=BF->next;
+        free(BF->proposition);
+        free(BF);
+        BF=r;
+    }
+    KB p;
+    while (BC!=NULL){
+        while(!isNULL(BC->head->premisse)){
+            r=BC->head->premisse->next;
+            free(BC->head->premisse->proposition);
+            free(BC->head->premisse);
+            BC->head->premisse=r;
+        }
+        free(r);
+        free(BC->head->conclusion);
+        p=BC->next;
+        free(BC);
+        BC=p;
+    }
+    free(p);
+    
 }

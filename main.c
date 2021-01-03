@@ -10,7 +10,7 @@ void menu(KB BC,Premisse BF){
         printf("1 - accéder à la base de connaissance\n\n");
         printf("2 - Entrer une base de faits\n\n" );
         //printf("3 - Executer le système expert\n\n" );
-        printf("4 - quitter\n\n");
+        printf("3 - quitter\n\n");
         scanf("%d",&menu);
         switch (menu){
         case 1:
@@ -22,7 +22,7 @@ void menu(KB BC,Premisse BF){
         //case 3:
         //    moteur(BF,BC);
         //    break;
-        case 4:
+        case 3:
             quit=1;
         default:
             break;
