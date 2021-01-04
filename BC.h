@@ -16,6 +16,7 @@ KB menuBC(KB BC,Premisse BF);
 
 void addruletoBC(KB base);
 int deleteRule(KB* BC, int i);
+int saveBCtoFile(KB BC);
 
 
 #endif
