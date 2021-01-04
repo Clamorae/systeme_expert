@@ -1,15 +1,5 @@
 #include "BC.h"
 
-KB createbasis(){
-    KB newel=(KB)malloc(sizeof(ElemBC));
-    return newel;
-}
-
-Regle* firstRule(KB base){
-    return base->head;
-}
-
-
 void afficheBC(KB BC){
     int i = 1;
     while (BC!=NULL){
