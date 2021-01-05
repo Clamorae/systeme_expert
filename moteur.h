@@ -1,7 +1,7 @@
 #ifndef MOTEUR_H
 #define MOTEUR_H
-
-#include "base_connaissance.h"
+#include "BC.h"
+#include "definition.h"
 #include <stdlib.h>
 #include <stdio.h>
 

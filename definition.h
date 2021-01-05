@@ -30,7 +30,7 @@ typedef ElemBC* KB;
 
 
 Regle* createRule();
-//crée une nouvelle régle et le pointeur qui lui est associé puis renvoie le pointeur 
+//crée une nouvelle régle et le pointeur qui lui est associé puis renvoie le pointeur
 
 void addProp(Premisse* bf, Proposition str);
 //Prend en argument une prémisse et une proposition puis parcours la premisse pour ajouter la propositio nen queue dans un nouvel élément

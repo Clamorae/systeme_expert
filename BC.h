@@ -2,7 +2,7 @@
 #define BC_H
 
 #include "main.h"
-#include "base_connaissance.h"
+#include "definition.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>

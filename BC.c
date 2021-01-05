@@ -1,5 +1,4 @@
 #include "BC.h"
-#include"base_connaissance.h"
 
 KB createbasis(){
   KB newel=(KB)malloc(sizeof(ElemBC));
