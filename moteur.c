@@ -37,6 +37,7 @@ void moteur(Premisse BF, KB BC){
             BF=BF->next;
         } while (BF!=NULL);
     }
+    printf("\n");
     Premisse r;
     while (!isNULL(BF)){
         r=BF->next;

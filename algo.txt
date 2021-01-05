@@ -90,3 +90,38 @@ Fonction premisseHead(rule:<Règle>):Proposition
 DEBUT
     premisseHead premisse(conclusion)
 FIN
+
+Objectif: Supprimer une règle dans une base de connaissance
+Lexique:
+  BC: La base de connaissance
+  ToDelete: l'élément de la liste à supprimer
+  ToConnecter: l'élément de la liste à connecter au reste de la liste
+  i: le numéro de la règle a supprimer
+  j: une variable d'incrémentation
+
+Fonction deleteRule(BC:<BaseDeConnaissance>,i:<Entier>):Entier
+DEBUT
+    Si Règle(BC) = INDEFINI Alors: // Cas ou la BC est nulle
+      deleteRule <- -1
+    FinSi
+    j <- 1
+    toDelete = BC
+    toConnect = BC
+    Tant que j != i faire:
+      Si next(toDelete) = INDEFINI alors://Cas ou l'index i est trop grand
+        deleteRule <- -1
+      Sinon:
+        toConnect <- toDelete
+        toDelete <- next(toDelete)
+      FinSi
+      j <- j+1
+    FinTantQue
+    Si toDelete==toConnect alors: //cas ou le premier élément de la liste est suprimer
+      BC <- next(BC)
+    Sinon Si next(toDelete) != INDEFINI alors://Cas en millieu de liste
+      toConnect <- next(next(toConnect));
+    Sinon://Cas en fin de liste
+      next(toConnect) <- INDEFINI
+    FinSi
+    suppr(toDelete)
+FIN
